@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen active">
+    <div class="start-card">
+      <h1>Chess</h1>
+      <div class="mode-buttons">
+        <button class="btn-mode" id="btn-play-yourself">
+          <span class="mode-icon">⚔</span>
+          <span class="mode-label">Play Yourself</span>
+          <span class="mode-desc">Two players, one board</span>
+        </button>
+        <button class="btn-mode" id="btn-ai-mode">
+          <span class="mode-icon">◈</span>
+          <span class="mode-label">vs Computer</span>
+          <span class="mode-desc">Play against the AI</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen">
+    <div class="game-layout">
+
+      <div class="sidebar left-sidebar">
+        <div class="player-label" id="label-black">Black</div>
+        <div class="captured-pieces" id="captured-white"></div>
+      </div>
+
+      <div class="board-container">
+        <div class="board-and-coords">
+          <div id="coords-ranks"></div>
+          <div>
+            <div id="board"></div>
+            <div id="coords-files"></div>
+          </div>
+        </div>
+        <div class="status-bar" id="status-bar">White to move</div>
+      </div>
+
+      <div class="sidebar right-sidebar">
+        <div class="player-label" id="label-white">White</div>
+        <div class="captured-pieces" id="captured-black"></div>
+        <div class="move-history-container">
+          <div class="move-history-header">Moves</div>
+          <div class="move-history" id="move-history"></div>
+        </div>
+        <div class="game-controls">
+          <button class="btn-control" id="btn-undo">↩ Undo</button>
+          <button class="btn-control" id="btn-new-game">New Game</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Promotion Modal -->
+  <div id="promotion-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-title">Promote Pawn</div>
+      <div class="promotion-pieces" id="promotion-pieces"></div>
+    </div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="gameover-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <div class="overlay-title" id="gameover-title"></div>
+      <div class="overlay-subtitle" id="gameover-subtitle"></div>
+      <button class="btn-primary" id="btn-play-again">Play Again</button>
+    </div>
+  </div>
+
+  <!-- AI Thinking Indicator -->
+  <div id="ai-thinking" class="ai-thinking hidden">
+    <div class="spinner"></div>
+    <span>Thinking…</span>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
